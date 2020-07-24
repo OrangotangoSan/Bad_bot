@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  getInsultUrl: 'https://evilinsult.com/generate_insult.php?lang=en&type=json'
 };
