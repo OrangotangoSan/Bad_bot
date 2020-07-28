@@ -10,6 +10,9 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HomeComponent } from './comeco/home/home.component';
 import { NavComponent } from './comeco/nav/nav.component';
 import { FooterComponent } from './comeco/footer/footer.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RatingTemplateComponent } from './rating-template/rating-template.component';
+
 
 
 @NgModule({
@@ -17,14 +20,16 @@ import { FooterComponent } from './comeco/footer/footer.component';
     AppComponent,
     HomeComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    RatingTemplateComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
