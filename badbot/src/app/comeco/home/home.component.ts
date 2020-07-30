@@ -8,15 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public insult: Insult;
-  constructor(private insultService: InsultService) { }
+
+  constructor() { }
 
   ngOnInit(): void {
-    this.getInsult();
-  }
 
-  getInsult(): void {
-    this.insultService.getInsult().subscribe((data: Insult) => this.insult = data);
   }
-
 }

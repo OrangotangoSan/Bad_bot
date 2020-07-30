@@ -1,9 +1,7 @@
-<p>Custom rating template provided as child element</p>
-
-<ngb-rating [(rate)]="currentRate" max="5">
-  <ng-template let-fill="fill" let-index="index">
-    <span class="star" [class.filled]="fill === 100" [class.bad]="index < 2">&#9733;</span>
-  </ng-template>
-</ngb-rating>
-<hr>
-<pre>Rate: <b>{{currentRate}}</b></pre>
+<div>
+  <ngb-rating [(rate)]="currentRate" max="5" (rateChange)="getRating()">
+    <ng-template let-fill="fill" let-index="index">
+      <span class="star" [class.filled]="fill === 100" [class.bad]="index < 2">&#9733;</span>
+    </ng-template>
+  </ngb-rating>
+</div>

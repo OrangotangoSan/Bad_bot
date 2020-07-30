@@ -1,0 +1,5 @@
+<h3> Comment</h3>
+<p>Comment and mark the number of stars acording to this work awesomeness!</p>
+<textarea [(ngModel)]="commentText" placeholder="How awesome is this work?"></textarea>
+<app-rating-template (rating)="getRating($event)"></app-rating-template>
+<button class="btn btn-success" (click)="saveComment()">Submit</button>

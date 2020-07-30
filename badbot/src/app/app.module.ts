@@ -12,6 +12,8 @@ import { NavComponent } from './comeco/nav/nav.component';
 import { FooterComponent } from './comeco/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RatingTemplateComponent } from './rating-template/rating-template.component';
+import { FormComponent } from './comeco/form/form.component';
+import { CommentComponent } from './comeco/comment/comment.component';
 
 
 
@@ -22,6 +24,8 @@ import { RatingTemplateComponent } from './rating-template/rating-template.compo
     NavComponent,
     FooterComponent,
     RatingTemplateComponent,
+    FormComponent,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,
