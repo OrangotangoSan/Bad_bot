@@ -1,5 +1,43 @@
-<h3> Comment</h3>
-<p>Comment and mark the number of stars acording to this work awesomeness!</p>
-<textarea [(ngModel)]="commentText" placeholder="How awesome is this work?"></textarea>
-<app-rating-template (rating)="getRating($event)"></app-rating-template>
-<button class="btn btn-success" (click)="saveComment()">Submit</button>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <h3>Comment</h3>
+      <p>
+        Comment and mark the number of stars acording to this work awesomeness!
+      </p>
+      <textarea
+        [(ngModel)]="commentText"
+        placeholder="How awesome is this work?"
+      ></textarea>
+      <app-rating-template (rating)="getRating($event)"></app-rating-template>
+      <button class="btn btn-success" (click)="saveComment()">Submit</button>
+    </div>
+    <div class="col-xs-6">
+      <div *ngIf="comments" class="p-5">
+        <div *ngFor="let comment of comments" class="card">
+          <p>{{ comment.comment }}</p>
+          <p>
+            {{ comment.rating }}
+            <ngb-rating
+              [(rate)]="comment.rating"
+              max="5"
+              (rateChange)="getRating()"
+            >
+              <ng-template let-fill="fill" let-index="index">
+                <span
+                  class="star"
+                  [class.filled]="fill === 100"
+                  [class.bad]="index < 2"
+                  >&#9733;</span
+                >
+              </ng-template>
+            </ngb-rating>
+          </p>
+          <p *ngIf="comment.insult">
+            {{ comment.insult }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

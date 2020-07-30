@@ -7,7 +7,7 @@ import { Insult } from './../../models/insult';
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.component.html',
-  styleUrls: ['./comment.component.scss']
+  styleUrls: ['./comment.component.scss'],
 })
 export class CommentComponent implements OnInit {
   insult: Insult;
@@ -15,20 +15,33 @@ export class CommentComponent implements OnInit {
   comments: Comment[];
   rating: number;
 
-  constructor(private insultService: InsultService) { }
-
-  ngOnInit(): void {
-    this.getInsult(this.rating);
+  constructor(private insultService: InsultService) {
+    this.comments = [
+      {
+        comment: 'Olá Mundo',
+        rating: 4,
+      },
+    ];
   }
+
+  ngOnInit(): void {}
   saveComment(): void {
-    console.log(this.rating);
+    if (this.rating < 3) {
+      this.getInsult();
+      this.comments.push({
+        comment: this.commentText,
+        rating: this.rating,
+        insult: this.insult.insult,
+      });
+    } else
+      this.comments.push({ comment: this.commentText, rating: this.rating });
   }
   getRating(event): void {
-    console.log('Ta no comment: ' + event);
+    this.rating = event;
   }
-  getInsult(rating): void {
-
-    this.insultService.getInsult().subscribe((data: Insult) => this.insult = data);
+  getInsult(): void {
+    this.insultService
+      .getInsult()
+      .subscribe((data: Insult) => (this.insult = data));
   }
 }
-
